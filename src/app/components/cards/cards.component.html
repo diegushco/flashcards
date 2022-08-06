@@ -1,0 +1,28 @@
+<section>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+            *ngIf="image"
+              alt="Avatar"
+              class="image"
+              [src]="image"
+            />
+            <div>
+                <h2>{{card.worden}}</h2>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <img
+            *ngIf="image"
+            alt="Avatar"
+            class="image"
+            [src]="image"
+            />
+            <div>
+                <h2>{{card.wordes}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
