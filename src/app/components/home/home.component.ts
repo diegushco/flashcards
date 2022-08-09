@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   index = 0;
   cardSelected:any = null;
   image:any = null;
+  flip = false;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private webService:WebService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -48,17 +49,23 @@ export class HomeComponent implements OnInit {
 
   back(){
     if(this.index-1 >= 0){
+      this.image = null;
       this.index--;
        this.cardSelected = this.groups.cards[this.index];
        this.getImage();
+       this.flip = false;
     }
   }
 
   next(){
     if(this.index+1 < this.groups.cards.length){
+      this.image = null;
+
       this.index++;
        this.cardSelected = this.groups.cards[this.index];
        this.getImage();
+       this.flip = false;
+
     }
   }
 
@@ -67,7 +74,10 @@ export class HomeComponent implements OnInit {
       (res)=>{
         console.log("IMAGE", res)
         if(res.hits.length > 0){
-          this.image = res.hits[0].previewURL;
+          console.log("random", Math.floor((Math.random() * ((res.hits.length-1) - 0 + 1)) + 0))
+          this.image = res.hits[Math.floor((Math.random() * ((res.hits.length-1) - 0 + 1)) + 0)].previewURL;
+        }else{
+          this.image = './assets/no.PNG';
         }
       }
     );

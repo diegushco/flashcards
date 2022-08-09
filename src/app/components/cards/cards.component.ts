@@ -9,6 +9,7 @@ export class CardsComponent implements OnInit {
 
   @Input() card:any;
   @Input() image:any;
+  @Input() flip:any;
 
   constructor() { }
 

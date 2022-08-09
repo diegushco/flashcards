@@ -24,9 +24,13 @@
 
     <mat-sidenav-content>
       <main *ngIf="cardSelected !== null">
-        <div (click)="back()"><</div>
-        <app-cards [card]="cardSelected" [image]="image"></app-cards>
-        <div (click)="next()">></div>
+        <div class="arrow" (click)="back()">
+          <span><</span>
+        </div>
+        <app-cards [flip]="flip" [card]="cardSelected" [image]="image"></app-cards>
+        <div class="arrow" (click)="next()">
+          <span>></span>
+        </div>
       </main>
     </mat-sidenav-content>
   </mat-sidenav-container>

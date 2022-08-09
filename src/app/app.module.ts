@@ -14,6 +14,8 @@ import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardsComponent } from './components/cards/cards.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { CardsComponent } from './components/cards/cards.component';
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

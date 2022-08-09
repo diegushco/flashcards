@@ -45,11 +45,20 @@ main {
   div {
     display: flex;
     align-items: center;
-    background: #ff821e;
     width: 2rem;
     justify-content: center;
     font-size: 2rem;
     font-weight: bold;
     color: white;
+    span{
+      border-radius: 50%;
+      color: #ff821e;
+      border: 2px solid #ff821e;
+      padding: 0.4rem;
+    }
   }
+}
+
+.arrow{
+  width: 2rem;
 }

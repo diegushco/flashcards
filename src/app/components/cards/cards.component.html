@@ -1,28 +1,39 @@
-<section>
-    <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img
-            *ngIf="image"
-              alt="Avatar"
-              class="image"
-              [src]="image"
-            />
-            <div>
-                <h2>{{card.worden}}</h2>
-            </div>
-          </div>
-          <div class="flip-card-back">
-            <img
-            *ngIf="image"
-            alt="Avatar"
-            class="image"
-            [src]="image"
-            />
-            <div>
-                <h2>{{card.wordes}}</h2>
-            </div>
-          </div>
+<div class="scene scene--card">
+  <div class="card" [class.is-flipped]="flip">
+    <div (click)="flip = !flip" class="card__face card__face--front">
+      <img *ngIf="image" alt="Avatar" class="image" [src]="image" />
+      <div>
+        <div *ngIf="!image" class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       </div>
-</section>
+      <div>
+        <h2>{{ card.worden }}</h2>
+      </div>
+    </div>
+    <div (click)="flip = !flip" class="card__face card__face--back">
+      <img *ngIf="image" alt="Avatar" class="image" [src]="image" />
+      <div *ngIf="!image" class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div>
+        <h2>{{ card.wordes }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
